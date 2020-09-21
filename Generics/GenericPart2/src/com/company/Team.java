@@ -2,7 +2,7 @@ package com.company;
 
 import java.util.ArrayList;
 
-public class Team<T extends Player> {
+public class Team<T extends Player> implements Comparable<Team<T>> {
     private String name;
     int played = 0;
     int won = 0;
@@ -17,6 +17,11 @@ public class Team<T extends Player> {
 
     public String getName() {
         return name;
+    }
+
+    @Override
+    public int compareTo(Team<T> team) {
+        return Integer.compare(team.ranking(), this.ranking());
     }
 
     public boolean addPlayer(T player) {
