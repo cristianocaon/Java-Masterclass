@@ -50,7 +50,7 @@ public class StockList {
             StockItem stockItem = item.getValue();
             double itemValue = stockItem.getPrice() * stockItem.quantityInStock();
             s.append(stockItem).append(". There are ").append(stockItem.quantityInStock()).append(" in stock. Value of items: ");
-            s.append(itemValue).append("\n");
+            s.append(String.format("%.2f", itemValue)).append("\n");
             totalCost += itemValue;
         }
         return s + "Total stock value " + totalCost;
